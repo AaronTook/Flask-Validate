@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+  background-image: url('/static/StonyWaterfall.jpg');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+</style>
+</head>
+<body>
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+	<div class="w3-display-topleft w3-padding-large w3-xlarge">
+	Flask-Validate
+	</div>
+	<div class="w3-display-middle">
+		<div class="w3-container w3-white" style="border-radius: 5%">
+			<h1 class="w3-jumbo w3-animate-top w3-text-black">COMING SOON</h1>
+			<hr class="w3-border-grey" style="margin:auto;width:40%">
+			<br>
+			<div class="w3-center">
+				<div class="w3-bar">
+					<button class="w3-button" onclick="selectEmail()">Email</button>
+					<button class="w3-button" onclick="selectTextSMS()">Text (SMS)</button>
+				</div>
+			</div>
+			<form id="emailForm" method="post">
+				<label for="emailAddress">Email Address:</label><br>
+				<input class="w3-input" type="email" id="emailAddress" name="emailAddress" placeholder="Your email address" required>
+				<br>
+				<input class="w3-input" type="submit" value="Connect">
+				<br>
+			</form>
+			<form id="phoneForm" method="post" hidden=true>
+				<label for="cellPhone">Cell Number:</label><br>
+				<input class="w3-input" type="tel" id="cellPhone" name="cellPhone" placeholder="Your cell number" required>
+				<select name="myProvider" id="myProvider" style="width:100%;" required>
+					<option value="" disabled selected hidden>Your Provider</option>
+					<option class="w3-input" type="radio" id="provider" name="provider" value="AT&T" required>AT&T </option>
+					<option class="w3-input" type="radio" id="provider" name="provider" value="Boost Mobile">Boost Mobile</option>
+					<option class="w3-input" type="radio" id="provider" name="provider" value="Cricket">Cricket</option>
+					<option class="w3-input" type="radio" id="provider" name="provider" value="Metro">Metro</option>
+					<option class="w3-input" type="radio" id="provider" name="provider" value="Spectrum">Spectrum</option>
+					<option class="w3-input" type="radio" id="provider" name="provider" value="Sprint">Sprint</option>
+					<option class="w3-input" type="radio" id="provider" name="provider" value="T-Mobile">T-Mobile</option>
+					<option class="w3-input" type="radio" id="provider" name="provider" value="U.S. Cellular">U.S. Cellular</option>
+					<option class="w3-input" type="radio" id="provider" name="provider" value="Verizon">Verizon</option>
+					<option class="w3-input" type="radio" id="provider" name="provider" value="Virgin Mobile">Virgin Mobile</option>
+                </select>
+				<br>
+				<input class="w3-input" type="submit" value="Connect">
+				<br>
+			</form>
+		</div>
+	</div>
+  <div class="w3-display-bottomleft w3-padding-large">
+    Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
+  </div>
+</div>
+<script>
+	function displayRadioValue(){
+		var days = document.getElementsByName('Method');
+		for (let i of days) {
+			if (i.checked) {
+				if(i.value=="Email") {
+					document.getElementById("phoneForm").hidden = true;
+					document.getElementById("emailForm").hidden = false;
+				}
+				else {
+					document.getElementById("emailForm").hidden = true;
+					document.getElementById("phoneForm").hidden = false;
+				}
+			}
+		}
+	}
+	function selectEmail() {
+		document.getElementById("phoneForm").hidden = true;
+		document.getElementById("emailForm").hidden = false;
+	}
+	function selectTextSMS() {
+		document.getElementById("emailForm").hidden = true;
+		document.getElementById("phoneForm").hidden = false;
+	}
+</script>
+</body>
+</html>
